@@ -1,0 +1,267 @@
+// ================= COLOR VARIABLES =================
+$primary-dark: #0a0050;
+$primary-mid: #1a0080;
+$primary-light: #2a00b0;
+$primary-gradient: linear-gradient(90deg, $primary-dark, $primary-mid);
+$header-gradient: linear-gradient(90deg, $primary-dark, $primary-mid, $primary-light);
+
+$active-border: #1a0080;
+$focus-ring: #7a6cff;
+
+$bg-body: #f2f3f8;
+$bg-card: #e9e9ef;
+$bg-selector: white;
+$bg-selector-active: #eef0f6;
+$bg-action: #e0e0e8;
+$bg-input: #ffffff;
+
+$text-dark: #111111;
+$text-mid: #444444;
+$text-muted: #555555;
+
+// ================= BASE =================
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: $bg-body;
+}
+
+// ================= HEADER =================
+.header {
+  background: $header-gradient;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+// ================= MAIN CONTAINER =================
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+// ================= SECTION TITLE =================
+.title {
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: $text-dark;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+// ================= TYPE =================
+.selector-grid {
+  display: grid; // switch from flex to grid
+  grid-template-columns: repeat(4, 1fr); // 4 equal columns, full width
+  gap: 20px;
+}
+
+.selector {
+  width: 100%; // fill the grid column
+  height: 140px; // taller to match target
+  background: $bg-selector;
+  border-radius: 14px;
+  border: 2px solid transparent;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  i {
+    color: $primary-mid;
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 15px;
+    font-weight: 500;
+    color: $text-muted;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+  }
+
+  &.active {
+    background: $bg-selector-active;
+    border: 2px solid $active-border;
+  }
+}
+
+// ================= ACTION =================
+.action-section {
+  padding: 0 40px;
+
+  .title {
+    margin-bottom: 14px;
+  }
+}
+
+.action-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.action-btn {
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  background: $bg-action;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &.active {
+    background: $primary-gradient;
+    color: white;
+  }
+}
+
+// ================= INPUT =================
+.input-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.input-box {
+  background: $bg-card;
+  padding: 20px;
+  border-radius: 14px;
+
+  p {
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    color: $text-dark;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+    background: $bg-input;
+    box-sizing: border-box;
+  }
+
+  input:focus,
+  select:focus {
+    border: 2px solid $focus-ring;
+  }
+}
+
+// ================= BUTTON =================
+.calculate-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: $primary-gradient;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+// ================= RESULT =================
+.result-box {
+  margin-top: 25px;
+  background: $bg-card;
+  padding: 20px;
+  border-radius: 14px;
+
+  h3 {
+    margin-top: 0;
+    font-weight: 700;
+    font-size: 15px;
+    color: $text-dark;
+  }
+
+  p {
+    color: $text-mid;
+    margin-top: 8px;
+  }
+}
+
+// ================= HISTORY =================
+.history-section {
+  margin-top: 25px;
+
+  h3 {
+    font-weight: 800;
+    font-size: 16px;
+    color: $text-dark;
+    margin-bottom: 12px;
+  }
+}
+
+.history-box {
+  background: $bg-card;
+  padding: 16px 20px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+
+  p {
+    margin: 0;
+    font-size: 14px;
+    color: $text-mid;
+  }
+}
+
+// ================= OPERATOR ROW =================
+.operator-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+
+  .op-btn {
+    width:192px;
+    height: 48px;
+    border-radius: 10px;
+    border: 2px solid $bg-action;
+    background: $bg-card;
+    font-size: 20px;
+    font-weight: 600;
+    color: $text-mid;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: $primary-mid;
+      color: $primary-mid;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(26, 0, 128, 0.15);
+    }
+
+    &.active {
+      background: $primary-gradient;
+      border-color: transparent;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(26, 0, 128, 0.25);
+    }
+  }
+}
+
